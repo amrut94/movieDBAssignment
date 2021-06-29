@@ -11,6 +11,9 @@ class BaseViewController: UIViewController {
     
     var baseVwModel: BaseViewModel?
     
+    private let indicator = UIActivityIndicatorView()
+    private let indicatorView = UIView()
+    
     //MARK:- Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +34,25 @@ class BaseViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationItem.hidesBackButton = true
+    }
+    
+    func showLoader() {
+        DispatchQueue.main.async { [self] in
+            self.indicatorView.frame = view.frame
+            self.indicator.center = indicatorView.center
+            self.indicatorView.addSubview(self.indicator)
+            self.indicator.hidesWhenStopped = true
+            self.indicator.style = .large
+            indicator.color = .white
+            self.indicator.startAnimating()
+            self.view.addSubview(self.indicatorView)
+        }
+    }
+    
+    func dismissLoader() {
+        DispatchQueue.main.async {
+            self.indicator.stopAnimating()
+            self.indicatorView.removeFromSuperview()
+        }
     }
 }

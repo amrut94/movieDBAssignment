@@ -8,7 +8,17 @@
 import Foundation
 
 struct APIConstant {
-    static let apiKey = "853090cc033adb6171d974212d4fd44d"
-    static let apiReadAccessToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NTMwOTBjYzAzM2FkYjYxNzFkOTc0MjEyZDRmZDQ0ZCIsInN1YiI6IjYwZDljMjI1MGZmMTVhMDAzMGI2ZDcxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gXH5jgnnlP83rZ0QTmEfY-WZLFd8JFfn_GahTi-Ro0k"
-    
+    static let apiKey       = "853090cc033adb6171d974212d4fd44d"
+    static let languageType = "en-US"
+}
+
+struct URLs {
+    static let baseUrl      = "https://api.themoviedb.org/3/movie/"
+    static let now_playing  = "now_playing"
+}
+
+struct APIKeys {
+    static let api_key      = "api_key"
+    static let language     = "language"
+    static let page         = "page"
 }

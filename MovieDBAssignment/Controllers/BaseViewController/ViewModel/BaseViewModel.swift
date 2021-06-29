@@ -8,5 +8,5 @@
 import UIKit
 
 class BaseViewModel: NSObject {
-
+    var reloadListViewClosure: (()->())?
 }

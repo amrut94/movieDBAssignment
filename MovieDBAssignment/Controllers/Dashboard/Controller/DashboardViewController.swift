@@ -24,6 +24,13 @@ class DashboardViewController: BaseViewController {
         super.viewDidLoad()
         setNavigationBarWithSearch()
         registerCells()
+        getMovies()
+        viewModel.reloadListViewClosure = {() in
+            DispatchQueue.main.async {
+                self.dismissLoader()
+                self.tblViewMovieList.reloadData()
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -40,6 +47,14 @@ class DashboardViewController: BaseViewController {
     func registerCells(){
         self.tblViewMovieList.register(UINib(nibName: MovieListTableViewCell.className, bundle: nil), forCellReuseIdentifier: MovieListTableViewCell.className)
     }
+    
+    
+    //MARK:- API Calls
+    
+    func getMovies(){
+        self.showLoader()
+        viewModel.getMovies()
+    }
 
 }
 
@@ -52,6 +67,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MovieListTableViewCell.className) as! MovieListTableViewCell
+        let movie = viewModel.cellForRowAt(indexPath: indexPath)
+        cell.lblMovieName.text = movie.title
+        cell.lblDate.text = movie.release_date
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
