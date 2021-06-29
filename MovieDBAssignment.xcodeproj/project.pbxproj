@@ -258,16 +258,16 @@
 		AC97A9D4268A005500E6026B /* MovieDBAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				AC97A9E6268A005600E6026B /* Info.plist */,
+				AC97AA08268A038900E6026B /* Application */,
 				AC2C0CAB268A438200C16C16 /* Networks */,
 				AC2C0CA4268A418300C16C16 /* Models */,
-				AC2C0CA1268A3F0800C16C16 /* Helpers */,
-				AC97A9E6268A005600E6026B /* Info.plist */,
-				AC97AA22268A09AB00E6026B /* Extensions */,
 				AC97AA1D268A086C00E6026B /* Views */,
-				AC97AA0B268A03DF00E6026B /* Resources */,
-				AC97AA0A268A03B000E6026B /* Storyboard */,
 				AC97AA09268A039A00E6026B /* Controllers */,
-				AC97AA08268A038900E6026B /* Application */,
+				AC97AA0A268A03B000E6026B /* Storyboard */,
+				AC2C0CA1268A3F0800C16C16 /* Helpers */,
+				AC97AA22268A09AB00E6026B /* Extensions */,
+				AC97AA0B268A03DF00E6026B /* Resources */,
 			);
 			path = MovieDBAssignment;
 			sourceTree = "<group>";

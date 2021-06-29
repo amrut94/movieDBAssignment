@@ -40,7 +40,6 @@ class DashboardViewController: BaseViewController {
     func closureSetup(){
         viewModel.reloadListViewClosure = {() in
             DispatchQueue.main.async {
-                self.dismissLoader()
                 self.tblViewMovieList.reloadData()
                 self.tblViewMovieList.tableFooterView?.isHidden = true
                 self.refreshControl.endRefreshing()
@@ -83,7 +82,6 @@ class DashboardViewController: BaseViewController {
     //MARK:- API Calls
     
     func getMovies(){
-        self.showLoader()
         viewModel.getMovies()
     }
     
@@ -123,7 +121,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
 extension DashboardViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         let controller = self.getController(controllerId: SearchViewController.className) as! SearchViewController
-        controller.viewModel.downloadedMovies = self.viewModel.arrMovies
+        controller.viewModel.arrDownloadedMovies = self.viewModel.arrMovies
         self.navigationController?.pushViewController(controller, animated: true)
         return false
     }

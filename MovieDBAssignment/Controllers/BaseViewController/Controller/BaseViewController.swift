@@ -21,6 +21,14 @@ class BaseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func setupLoadingClosure(){
+        baseVwModel?.loadingIndicator = {(status) in
+            DispatchQueue.main.async {
+                status ? self.showIndicator() : self.dismissIndicator()
+            }
+        }
+    }
+    
     //Controller object
     func getController(storyboard: String = "Main", controllerId: String)-> UIViewController{
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
@@ -36,7 +44,8 @@ class BaseViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
     }
     
-    func showLoader() {
+    //Loading indicator show hide
+    func showIndicator() {
         DispatchQueue.main.async { [self] in
             self.indicatorView.frame = view.frame
             self.indicator.center = indicatorView.center
@@ -49,7 +58,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    func dismissLoader() {
+    func dismissIndicator() {
         DispatchQueue.main.async {
             self.indicator.stopAnimating()
             self.indicatorView.removeFromSuperview()

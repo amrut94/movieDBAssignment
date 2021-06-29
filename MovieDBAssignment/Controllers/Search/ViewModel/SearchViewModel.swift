@@ -11,20 +11,49 @@ class SearchViewModel: BaseViewModel {
     
     var arrMovies:[Results] = []
     var isSearchActive = false
-    var downloadedMovies:[Results]?
+    var arrDownloadedMovies:[Results]?
     
     //MARK:- Functions
     func filterMovies(searchQuery:String){
         self.isSearchActive = searchQuery.count > 0
         if(self.isSearchActive){
-            arrMovies = downloadedMovies?.filter({ (movie) in
-                let arrSubtitles = movie.title?.components(separatedBy: " ") ?? []
-                return (movie.title?.starts(with: searchQuery) ?? false) || (arrSubtitles.filter({$0.starts(with: searchQuery)}).count > 0)
+            arrMovies = arrDownloadedMovies?.filter({ (movie) in
+            return filterSearchData(movie: movie, searchQuery: searchQuery)
             }) ?? []
         } else {
             arrMovies = (UserDefaults.getObjectFromUserDefaults(type: [Results].self, key: .movies) ?? [])
         }
         self.reloadListViewClosure?()
+    }
+    
+    
+    //algorithm login for search movies
+    
+    func filterSearchData(movie: Results, searchQuery: String) -> Bool {
+        let arrSubtitles = movie.title?.lowercased().components(separatedBy: " ") ?? []
+        var arrSearchQuery = searchQuery.lowercased().components(separatedBy: " ")
+        arrSearchQuery = arrSearchQuery.filter({$0 != ""})
+        
+        var isPresent = false
+        
+        //Check the search query contains any of the words in movie title
+        for subtitle in arrSubtitles {
+            if subtitle.starts(with: arrSearchQuery.last ?? ""){
+                isPresent = true
+            }
+        }
+        
+        //Checked whether the search data is subset of array of movie words except last search word as we contineoulsy writing it
+        
+        let titleSet = Set(arrSubtitles)
+        var searchQuerySet = Set<String>()
+        if (arrSearchQuery.count > 1) {
+            arrSearchQuery.removeLast()
+            searchQuerySet = Set(arrSubtitles)
+            isPresent = isPresent && searchQuerySet.isSubset(of: titleSet)
+        }
+        
+        return isPresent
     }
     
     //MARK:- TableView Data

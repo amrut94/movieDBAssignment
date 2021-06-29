@@ -16,7 +16,7 @@ class CastAndMovieCollectionViewCell: UICollectionViewCell {
     func configureCastCell(cast: Cast){
         lblTitle.text = cast.name
         imgView.sd_imageIndicator = SDWebImageActivityIndicator.white
-        imgView.sd_setImage(with: URL(string: URLs.imageUrl+(cast.profile_path ?? "")), placeholderImage: UIImage(named: "moviePlaceholder"))
+        imgView.sd_setImage(with: URL(string: URLs.imageUrl+(cast.profile_path ?? "")), placeholderImage: UIImage(named: "userPlaceholder"))
     }
     func configureMovieCell(movie: Results){
         lblTitle.text = movie.title

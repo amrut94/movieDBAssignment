@@ -53,10 +53,16 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource 
         cell.lblTitle.text = viewModel.titleForSection(section: section)
         return cell
     }
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return viewModel.heightForSection(section: section)
+    }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 0 :25
+        return viewModel.heightForSection(section: section)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return viewModel.heightForRow(section: indexPath.section)
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch MovieDetailCell(rawValue: indexPath.section){
         case .movieDetail:

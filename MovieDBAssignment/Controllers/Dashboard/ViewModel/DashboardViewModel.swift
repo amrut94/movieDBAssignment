@@ -52,7 +52,7 @@ class DashboardViewModel: BaseViewModel {
     
     //MARK:- API Calls
     func getMovies() {
-        MovieService().getMovies(page: pageNo) { (response) in
+        MovieService().getMovies(viewModel: self,page: pageNo) { (response) in
             DispatchQueue.main.async {
                 if let results = response?.results{
                     self.arrMovies.append(contentsOf: results)

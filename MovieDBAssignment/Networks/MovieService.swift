@@ -9,10 +9,12 @@ import UIKit
 
 public class MovieService: APIService {
 
-    func getMovies(page: Int, completion:@escaping (Response?) -> Void){
+    func getMovies(viewModel: BaseViewModel? ,page: Int, completion:@escaping (Response?) -> Void){
         let params = [APIKeys.api_key : APIConstant.apiKey, APIKeys.language : APIConstant.languageType, APIKeys.page : page ] as [String : Any]
+        viewModel?.showIndicator()
         super.startService(with: URLs.now_playing, parameters: params, model: Response.self) { (result) in
             DispatchQueue.main.async {
+                viewModel?.hideIndicator()
                 switch result {
                 case .Success(let response):
                     if let responseModel = response as? Response {
@@ -25,10 +27,12 @@ public class MovieService: APIService {
         }
     }
     
-    func getReviews(movieId: Int,completion:@escaping (ReviewResponse?) -> Void){
+    func getReviews(viewModel: BaseViewModel?, movieId: Int,completion:@escaping (ReviewResponse?) -> Void){
         let params = [APIKeys.api_key : APIConstant.apiKey, APIKeys.language : APIConstant.languageType, APIKeys.page : 1 ] as [String : Any]
+        viewModel?.showIndicator()
         super.startService(with: "\(movieId)/\(URLs.reviews)", parameters: params, model: ReviewResponse.self) { (result) in
             DispatchQueue.main.async {
+                viewModel?.hideIndicator()
                 switch result {
                 case .Success(let response):
                     if let responseModel = response as? ReviewResponse {
@@ -41,10 +45,12 @@ public class MovieService: APIService {
         }
     }
     
-    func getCastAndCrews(movieId: Int,completion:@escaping (CastResponse?) -> Void){
+    func getCastAndCrews(viewModel: BaseViewModel?, movieId: Int,completion:@escaping (CastResponse?) -> Void){
         let params = [APIKeys.api_key : APIConstant.apiKey, APIKeys.language : APIConstant.languageType] as [String : Any]
+        viewModel?.showIndicator()
         super.startService(with: "\(movieId)/\(URLs.credits)", parameters: params, model: CastResponse.self) { (result) in
             DispatchQueue.main.async {
+                viewModel?.hideIndicator()
                 switch result {
                 case .Success(let response):
                     if let responseModel = response as? CastResponse {
@@ -56,10 +62,12 @@ public class MovieService: APIService {
             }
         }
     }
-    func getSimilarMovies(movieId: Int,completion:@escaping (Response?) -> Void){
+    func getSimilarMovies(viewModel: BaseViewModel?, movieId: Int,completion:@escaping (Response?) -> Void){
         let params = [APIKeys.api_key : APIConstant.apiKey, APIKeys.language : APIConstant.languageType, APIKeys.page : 1 ] as [String : Any]
+        viewModel?.showIndicator()
         super.startService(with: "\(movieId)/\(URLs.similar)", parameters: params, model: Response.self) { (result) in
             DispatchQueue.main.async {
+                viewModel?.hideIndicator()
                 switch result {
                 case .Success(let response):
                     if let responseModel = response as? Response {

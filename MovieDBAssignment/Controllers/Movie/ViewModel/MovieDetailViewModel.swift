@@ -73,7 +73,35 @@ class MovieDetailViewModel: BaseViewModel {
         }
     }
     
+    func heightForSection(section: Int) -> CGFloat {
+        switch MovieDetailCell(rawValue: section) {
+        case .movieDetail:
+            return CGFloat.leastNormalMagnitude
+        case .castAndCrew:
+            return arrCastCrews.count > 0 ? 25 : CGFloat.leastNormalMagnitude
+        case .similarMovies:
+            return arrSimilarMovies.count > 0 ? 25 : CGFloat.leastNormalMagnitude
+        case .reviews:
+            return arrReview.count > 0 ? 25 : CGFloat.leastNormalMagnitude
+        case .none:
+            return CGFloat.leastNormalMagnitude
+        }
+    }
     
+    func heightForRow(section: Int) -> CGFloat {
+        switch MovieDetailCell(rawValue: section) {
+        case .movieDetail:
+            return UITableView.automaticDimension
+        case .castAndCrew:
+            return arrCastCrews.count > 0 ? UITableView.automaticDimension : 0
+        case .similarMovies:
+            return arrSimilarMovies.count > 0 ? UITableView.automaticDimension : 0
+        case .reviews:
+            return arrReview.count > 0 ? UITableView.automaticDimension : 0
+        case .none:
+            return 0.0
+        }
+    }
     //MARK:- Collection View Data
     func numberOfItems(section: Int) -> Int{
         return (MovieDetailCell(rawValue: section) == .castAndCrew) ? arrCastCrews.count : arrSimilarMovies.count
@@ -85,7 +113,7 @@ class MovieDetailViewModel: BaseViewModel {
     
     //MARK:- APIs Call
     func getCastAndCrews(){
-        MovieService().getCastAndCrews(movieId: movie?.id ?? 0) { (response) in
+        MovieService().getCastAndCrews(viewModel: self,movieId: movie?.id ?? 0) { (response) in
             DispatchQueue.main.async {
                 if let cast = response?.cast{
                     self.arrCastCrews.append(contentsOf: cast)
@@ -100,7 +128,7 @@ class MovieDetailViewModel: BaseViewModel {
     }
     
     func getSimilarMovies(){
-        MovieService().getSimilarMovies(movieId: movie?.id ?? 0) { (response) in
+        MovieService().getSimilarMovies(viewModel: self,movieId: movie?.id ?? 0) { (response) in
             DispatchQueue.main.async {
                 if let movies = response?.results{
                     self.arrSimilarMovies.append(contentsOf: movies)
@@ -112,7 +140,7 @@ class MovieDetailViewModel: BaseViewModel {
     }
     
     func getReviews() {
-        MovieService().getReviews(movieId: movie?.id ?? 0) { (response) in
+        MovieService().getReviews(viewModel: self, movieId: movie?.id ?? 0) { (response) in
             DispatchQueue.main.async {
                 if let results = response?.reviews{
                     self.arrReview.append(contentsOf: results)

@@ -10,4 +10,13 @@ import UIKit
 class BaseViewModel: NSObject {
     var reloadListViewClosure: (()->())?
     var redirectControllerClosure: ((Any?)->())?
+    var loadingIndicator: ((Bool) -> ())?
+    
+    func showIndicator(){
+        loadingIndicator?(true)
+    }
+    
+    func hideIndicator(){
+        loadingIndicator?(false)
+    }
 }
