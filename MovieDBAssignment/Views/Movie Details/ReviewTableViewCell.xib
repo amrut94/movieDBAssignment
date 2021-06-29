@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="106" id="KGk-i7-Jjw" customClass="ReviewTableViewCell" customModule="MovieDBAssignment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qiN-8m-EEE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="s10-ai-kuj">
+                                <rect key="frame" x="10" y="11.5" width="30" height="27"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="HHv-ky-1wj"/>
+                                    <constraint firstAttribute="height" constant="30" id="pfY-u0-mSA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amrut Waghmare" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRr-w3-6Kc">
+                                <rect key="frame" x="50" y="10" width="265" height="35"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="s10-ai-kuj" secondAttribute="bottom" constant="10" id="8cx-HU-2gB"/>
+                            <constraint firstItem="TRr-w3-6Kc" firstAttribute="top" secondItem="qiN-8m-EEE" secondAttribute="top" constant="10" id="HEs-2g-hYw"/>
+                            <constraint firstItem="s10-ai-kuj" firstAttribute="leading" secondItem="qiN-8m-EEE" secondAttribute="leading" constant="10" id="Qke-yV-et1"/>
+                            <constraint firstAttribute="bottom" secondItem="TRr-w3-6Kc" secondAttribute="bottom" constant="5" id="T3s-up-54Q"/>
+                            <constraint firstAttribute="trailing" secondItem="TRr-w3-6Kc" secondAttribute="trailing" constant="5" id="fy4-6f-yQO"/>
+                            <constraint firstItem="s10-ai-kuj" firstAttribute="top" secondItem="qiN-8m-EEE" secondAttribute="top" constant="10" id="i6f-ij-zfH"/>
+                            <constraint firstAttribute="height" constant="50" id="ul8-0x-GkQ"/>
+                            <constraint firstItem="TRr-w3-6Kc" firstAttribute="leading" secondItem="s10-ai-kuj" secondAttribute="trailing" constant="10" id="yPa-5l-KGG"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 Jan 2020" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fev-W4-9A0">
+                        <rect key="frame" x="10" y="50" width="300" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="7Te-9D-bt4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qiN-8m-EEE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="F98-Qb-faO"/>
+                    <constraint firstAttribute="bottom" secondItem="fev-W4-9A0" secondAttribute="bottom" id="JKg-fr-lYC"/>
+                    <constraint firstItem="fev-W4-9A0" firstAttribute="top" secondItem="qiN-8m-EEE" secondAttribute="bottom" id="Xad-bk-vD2"/>
+                    <constraint firstAttribute="trailing" secondItem="fev-W4-9A0" secondAttribute="trailing" constant="10" id="Yb0-9n-oe2"/>
+                    <constraint firstItem="fev-W4-9A0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="eJr-vi-qiv"/>
+                    <constraint firstAttribute="trailing" secondItem="qiN-8m-EEE" secondAttribute="trailing" id="lYC-wO-Uy1"/>
+                    <constraint firstItem="qiN-8m-EEE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mXZ-ai-f9J"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="imgViewAuthor" destination="s10-ai-kuj" id="p4B-Ie-KjP"/>
+                <outlet property="lblAuthor" destination="TRr-w3-6Kc" id="Ezo-ah-MKq"/>
+                <outlet property="lblComment" destination="fev-W4-9A0" id="IIx-y3-vFA"/>
+            </connections>
+            <point key="canvasLocation" x="27.536231884057973" y="79.6875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

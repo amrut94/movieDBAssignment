@@ -9,4 +9,5 @@ import Foundation
 
 struct StringConstant {
     static let invalidUrl = "Invalid URL"
+    static let pullToRefresh = "Pull to refresh"
 }

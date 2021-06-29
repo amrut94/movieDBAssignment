@@ -1,17 +1,15 @@
 //
-//  SectionTitleTableViewCell.swift
+//  CastAndMovieTableViewCell.swift
 //  MovieDBAssignment
 //
-//  Created by AMRUT WAGHMARE on 28/06/21.
+//  Created by AMRUT WAGHMARE on 29/06/21.
 //
 
 import UIKit
 
-class SectionTitleTableViewCell: UITableViewCell {
+class CastAndMovieTableViewCell: UITableViewCell {
+    @IBOutlet weak var collectionViewCastAndMovie: UICollectionView!
     
-    //MARK:- @IBOutlet
-    @IBOutlet weak var lblTitle: UILabel!
-
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
@@ -23,5 +21,5 @@ class SectionTitleTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

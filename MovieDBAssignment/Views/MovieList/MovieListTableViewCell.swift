@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieListTableViewCell: UITableViewCell {
 
@@ -27,4 +28,11 @@ class MovieListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    //MARK:- Configure Cell
+    func configureCell(movie: Results){
+        lblMovieName.text = movie.title
+        lblDate.text = movie.release_date
+        imgViewPoster.sd_imageIndicator = SDWebImageActivityIndicator.white
+        imgViewPoster.sd_setImage(with: URL(string: URLs.imageUrl+(movie.poster_path ?? "")), placeholderImage: UIImage(named: "moviePlaceholder"))
+    }
 }

@@ -9,4 +9,5 @@ import UIKit
 
 class BaseViewModel: NSObject {
     var reloadListViewClosure: (()->())?
+    var redirectControllerClosure: ((Any?)->())?
 }

@@ -24,6 +24,8 @@ class SearchViewController: BaseViewController {
         super.viewDidLoad()
         setNavigationBarWithSearch()
         registerCells()
+        closureSetup()
+        viewModel.filterMovies(searchQuery: "")
         // Do any additional setup after loading the view.
     }
     
@@ -41,6 +43,21 @@ class SearchViewController: BaseViewController {
     func registerCells(){
         self.tblViewSearch.register(UINib(nibName: MovieListTableViewCell.className, bundle: nil), forCellReuseIdentifier: MovieListTableViewCell.className)
         self.tblViewSearch.register(UINib(nibName: SectionTitleTableViewCell.className, bundle: nil), forCellReuseIdentifier: SectionTitleTableViewCell.className)
+    }
+    func closureSetup(){
+        viewModel.reloadListViewClosure = {() in
+            DispatchQueue.main.async {
+                self.tblViewSearch.reloadData()
+            }
+        }
+        
+        viewModel.redirectControllerClosure = {(movie) in
+            DispatchQueue.main.async {
+                let controller = self.getController(controllerId: MovieDetailViewController.className) as! MovieDetailViewController
+                controller.viewModel.movie = movie as? Results
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
     }
 }
 
@@ -69,9 +86,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MovieListTableViewCell.className) as! MovieListTableViewCell
+        let movie = viewModel.cellForRowAt(indexPath: indexPath)
+        cell.configureCell(movie: movie)
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectRowAt(indexPath: indexPath)
+    }
     
 }
 
@@ -83,7 +105,6 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.isSearchActive = searchText.count > 0
-        self.tblViewSearch.reloadData()
+        viewModel.filterMovies(searchQuery: searchText)
     }
 }

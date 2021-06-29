@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGo-JG-vkN">
                         <rect key="frame" x="0.0" y="5" width="320" height="110"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-mK-mhp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moviePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-mK-mhp">
                                 <rect key="frame" x="5" y="5" width="130" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="UNR-Em-Gkt"/>
@@ -35,7 +35,7 @@
                                 <rect key="frame" x="145" y="5" width="170" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name Movie Name ab cd ef gh ijklm nmo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ9-fd-9io">
-                                        <rect key="frame" x="0.0" y="0.0" width="170" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="40.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Fi2-tH-ekv"/>
                                         </constraints>
@@ -44,7 +44,7 @@
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 Jan 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xln-gL-pa0">
-                                        <rect key="frame" x="0.0" y="45" width="170" height="15"/>
+                                        <rect key="frame" x="0.0" y="45.5" width="170" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="cuF-Xo-UVv"/>
                                         </constraints>
@@ -53,19 +53,19 @@
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJX-Dn-QQh">
-                                        <rect key="frame" x="0.0" y="65" width="100" height="30"/>
+                                        <rect key="frame" x="0.0" y="65.5" width="100" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="QyY-jv-OwX"/>
                                             <constraint firstAttribute="width" constant="100" id="qyQ-0b-9m7"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                         <state key="normal" title="Book Now">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="2"/>
+                                                <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="15"/>
@@ -78,9 +78,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="nJX-Dn-QQh" secondAttribute="bottom" constant="5" id="9Pc-hO-u04"/>
                                     <constraint firstItem="nJX-Dn-QQh" firstAttribute="top" secondItem="Xln-gL-pa0" secondAttribute="bottom" constant="5" id="ATV-Eb-wkv"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="SBC-Jj-NHe"/>
+                                    <constraint firstAttribute="height" constant="100" id="SBC-Jj-NHe"/>
                                     <constraint firstItem="nJX-Dn-QQh" firstAttribute="leading" secondItem="Xln-gL-pa0" secondAttribute="leading" id="WFa-In-gyw"/>
                                     <constraint firstAttribute="trailing" secondItem="Xln-gL-pa0" secondAttribute="trailing" id="ZXp-2Q-6TU"/>
                                     <constraint firstAttribute="trailing" secondItem="ZQ9-fd-9io" secondAttribute="trailing" id="fYh-95-put"/>
@@ -123,7 +122,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="images" width="148.5" height="84.5"/>
+        <image name="moviePlaceholder" width="100" height="100"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

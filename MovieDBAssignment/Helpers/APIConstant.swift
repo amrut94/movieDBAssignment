@@ -15,6 +15,10 @@ struct APIConstant {
 struct URLs {
     static let baseUrl      = "https://api.themoviedb.org/3/movie/"
     static let now_playing  = "now_playing"
+    static let imageUrl     = "https://image.tmdb.org/t/p/original"
+    static let reviews      = "/reviews"
+    static let credits      = "/credits"
+    static let similar      = "/similar"
 }
 
 struct APIKeys {
